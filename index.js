@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const routerApi = require('./routes');
+const { checkApiKey } = require('./middlewares/auth.handler');
 
 // -- Assign the PORT if it comes from a env varaible
 const port = process.env.PORT || 3000;
@@ -15,6 +16,11 @@ app.use(express.json());
 // -- App has always two params
 app.get('/', (req, res) => {
   res.send('Hi, my server in express');
+});
+
+// -- Auth middleware
+app.get('/new-route', checkApiKey,(req, res) => {
+  res.send('Hi, new route');
 });
 
 // -- You must neve user console.log in production, only for dev

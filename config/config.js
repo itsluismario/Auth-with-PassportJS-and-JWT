@@ -20,7 +20,8 @@ const config = {
     min: 0,
     acquire: 30000,
     idle: 10000
-  }
+  },
+  apiKey: process.env.API_KEY,
 }
 
 module.exports = { config };
