@@ -52,6 +52,16 @@ class UsersService {
     return data;
   }
 
+  async findByEmail(email) {
+    const data = await models.User.findOne({
+      where: { email }
+    });
+    if(data.length === 0) {
+      throw boom.notFound('There are no users');
+    }
+    return data;
+  }
+
   async findOne(id) {
     const user = await models.User.findByPk(id);
     if (!user) {

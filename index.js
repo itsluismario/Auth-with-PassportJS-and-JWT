@@ -47,6 +47,8 @@ const options = {
 
 app.use(cors(options));
 
+require('./utils/auth');
+
 routerApi(app);
 
 // -- Middleware must be declared after routing
