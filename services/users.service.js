@@ -1,5 +1,6 @@
 const { faker } = require('@faker-js/faker');
 const boom = require('@hapi/boom');
+const bcrypt = require('bcrypt');
 
 const { models } = require('./../libs/sequelize');
 
@@ -31,7 +32,12 @@ class UsersService {
     if (IsUser) {
       throw boom.conflict('User already exists');
     }
-    const newUser = await models.User.create(data);
+    const hash = await bcrypt.hash(data.password, 10);
+    const newUser = await models.User.create({
+      ...data,
+      password: hash
+    });
+    delete newUser.dataValues.password;
     return newUser;
   }
 
