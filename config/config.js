@@ -22,6 +22,7 @@ const config = {
     idle: 10000
   },
   apiKey: process.env.API_KEY,
+  secretKey: process.env.SECRET_KEY,
 }
 
 module.exports = { config };
