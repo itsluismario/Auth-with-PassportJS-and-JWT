@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const { config: { secretKey } } = require('./config/config');
+const { config: { jwtSecret } } = require('./config/config');
 
-const secret = secretKey;
+const secret = jwtSecret;
 
 const jwtConfig = {
   expiresIn: '1m',
