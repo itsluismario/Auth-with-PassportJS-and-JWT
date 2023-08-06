@@ -2,6 +2,7 @@ const express = require('express');
 const CustomersService = require('../services/customers.service')
 const validatorHandler = require('../middlewares/validator.handler');
 const { createCustomerSchema, updateCustomerSchema, parcialUpdateCustomerSchema, getCustomerSchema, deleteCustomerSchema } = require('../schemas/customers.schema.js');
+const passport = require('passport');
 
 // -- Service
 const service = new CustomersService();
@@ -43,6 +44,7 @@ router.post('/',
 })
 
 router.patch('/:id',
+  passport.authenticate('jwt', {session: false}),
   validatorHandler(getCustomerSchema, 'params'),
   validatorHandler(parcialUpdateCustomerSchema, 'body'),
   async (req, res, next) => {
@@ -57,6 +59,7 @@ router.patch('/:id',
 });
 
 router.put('/:id',
+  passport.authenticate('jwt', {session: false}),
   validatorHandler(getCustomerSchema, 'params'),
   validatorHandler(updateCustomerSchema, 'body'),
   async (req, res, next) => {
@@ -71,6 +74,7 @@ router.put('/:id',
 });
 
 router.delete('/:id',
+  passport.authenticate('jwt', {session: false}),
   validatorHandler(deleteCustomerSchema, 'params'),
   async (req, res, next) => {
     try {
