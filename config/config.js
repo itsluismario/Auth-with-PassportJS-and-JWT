@@ -23,6 +23,8 @@ const config = {
   },
   apiKey: process.env.API_KEY,
   jwtSecret: process.env.JWT_SECRET,
+  mailerUser:process.env.MAILER_USER,
+  mailerPass:process.env.MAILER_PASS,
 }
 
 module.exports = { config };
