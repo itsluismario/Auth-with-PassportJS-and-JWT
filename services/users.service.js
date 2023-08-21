@@ -56,8 +56,8 @@ class UsersService {
     const data = await models.User.findOne({
       where: { email }
     });
-    if(data.length === 0) {
-      throw boom.notFound('There are no users');
+    if(data === null) {
+      throw boom.unauthorized();
     }
     return data;
   }

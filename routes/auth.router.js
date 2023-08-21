@@ -1,11 +1,11 @@
 const express = require('express');
 const passport = require('passport');
+
 const validatorHandler = require('../middlewares/validator.handler');
 const { loginAuthSchema } = require('../schemas/auth.schema');
-const jwt = require('jsonwebtoken');
-const { config: { jwtSecret } } = require('./../config/config');
-const secret = jwtSecret;
 const router = express.Router();
+const AuthService = require('./../services/auth.service');
+const service = new AuthService();
 
 router.post('/login',
   validatorHandler(loginAuthSchema, 'body'),
@@ -13,22 +13,19 @@ router.post('/login',
   async (req, res, next) => {
     try {
       const user = req.user;
+      res.json(service.signToken(user));
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
-      const jwtConfig = {
-        expiresIn: '30m',
-      };
-
-      const payload = {
-        sub: user.id,
-        role: user.role
-      }
-
-      const token = jwt.sign(payload, secret, jwtConfig);
-      res.json({
-        user,
-        token
-      });
-
+router.post('/recovery',
+  async (req, res, next) => {
+    try {
+      const { email } = req.body;
+      const response = await service.sendMail(email);
+      res.json(response);
     } catch (error) {
       next(error);
     }
