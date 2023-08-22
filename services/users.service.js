@@ -76,6 +76,7 @@ class UsersService {
       throw boom.notFound('User not found')
       }
     const response = await user.update(changes);
+    console.log(response);
     return response;
   }
 
