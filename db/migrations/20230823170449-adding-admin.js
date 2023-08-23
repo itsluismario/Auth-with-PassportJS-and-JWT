@@ -24,6 +24,5 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete(USER_TABLE, { role: 'admin' }, {});
   }
 };
