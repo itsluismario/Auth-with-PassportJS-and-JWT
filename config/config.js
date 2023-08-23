@@ -26,7 +26,7 @@ const config = {
   mailerUser: process.env.MAILER_USER,
   mailerPass: process.env.MAILER_PASS,
   adminPass: process.env.ADMIN_PASSWORD,
-  admimEmail: process.env.ADMIN_EMAIL,
+  adminEmail: process.env.ADMIN_EMAIL,
 }
 
 module.exports = { config };

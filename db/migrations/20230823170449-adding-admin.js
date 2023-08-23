@@ -1,6 +1,6 @@
 'use strict';
 
-const { config: { adminPass, admimEmail } } = require('./../../config/config');
+const { config: { adminPass, adminEmail } } = require('./../../config/config');
 
 const { USER_TABLE } = require('../models/user.model');
 
@@ -14,7 +14,7 @@ module.exports = {
     const now = Sequelize.literal('CURRENT_TIMESTAMP');
     await queryInterface.bulkInsert(USER_TABLE, [
       {
-        email: admimEmail,
+        email: adminEmail,
         password: hash,
         role: 'admin',
         created_at: now,
