@@ -1,6 +1,6 @@
 'use strict';
 
-const { config: { adminPass } } = require('./../../config/config');
+const { config: { adminPass, admimEmail } } = require('./../../config/config');
 
 const { USER_TABLE } = require('../models/user.model');
 
@@ -11,13 +11,14 @@ const bcrypt = require('bcrypt');
 module.exports = {
   async up (queryInterface, Sequelize) {
     const hash = await bcrypt.hash(adminPass, 10);
+    const now = Sequelize.literal('CURRENT_TIMESTAMP');
     await queryInterface.bulkInsert(USER_TABLE, [
       {
-        email: 'helloluismario@gmail.com',
+        email: admimEmail,
         password: hash,
         role: 'admin',
-        created_at: new Date(),
-        updated_at: new Date()
+        created_at: now,
+        updated_at: now
       }
     ]);
   },
