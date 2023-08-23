@@ -18,7 +18,12 @@ class CustomersService {
     const newCustomer = await models.Customer.create(newData, {
       include: ['user']
     });
-    delete newCustomer.user.dataValues.password;
+    // Iterate through each user object and delete properties
+    data.forEach(user => {
+      delete user.dataValues.password;
+      delete user.dataValues.recoveryToken;
+    });
+
     return newCustomer;
   }
 

@@ -38,6 +38,7 @@ class UsersService {
       password: hash
     });
     delete newUser.dataValues.password;
+    delete newUser.dataValues.recoveryToken;
     return newUser;
   }
 
@@ -49,6 +50,11 @@ class UsersService {
     if(data.length === 0) {
       throw boom.notFound('There are no users');
     }
+    // Iterate through each user object and delete properties
+    data.forEach(user => {
+      delete user.dataValues.password;
+      delete user.dataValues.recoveryToken;
+    });
     return data;
   }
 
@@ -67,6 +73,7 @@ class UsersService {
     if (!user) {
       throw boom.notFound('User not found')
     }
+    delete user.dataValues.password;
     return user;
   }
 
@@ -76,7 +83,6 @@ class UsersService {
       throw boom.notFound('User not found')
       }
     const response = await user.update(changes);
-    console.log(response);
     return response;
   }
 
