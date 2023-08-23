@@ -22,7 +22,7 @@ module.exports = {
     await queryInterface.dropTable(CUSTOMER_TABLE);
     await queryInterface.dropTable(USER_TABLE);
     // Remove the foreign key constraint first
-    await queryInterface.removeConstraint(PRODUCT_TABLE, 'products_categoyr_fkey');
+    await queryInterface.removeConstraint(PRODUCT_TABLE, 'products_category_fkey');
     // Then drop the products table
     await queryInterface.dropTable(PRODUCT_TABLE);
     await queryInterface.dropTable(CATEGORY_TABLE);

@@ -25,7 +25,8 @@ const config = {
   jwtSecret: process.env.JWT_SECRET,
   mailerUser:process.env.MAILER_USER,
   mailerPass:process.env.MAILER_PASS,
-  adminPass:process.env.ADMIN_PASSWORD
+  adminPass:process.env.ADMIN_PASSWORD,
+  adminEmail:process.env.ADMIN_EMAIL
 }
 
 module.exports = { config };
