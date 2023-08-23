@@ -1,18 +1,18 @@
 <p align="center">
-  <a href="https://static.platzi.com/cdn-cgi/image/width=1024,quality=50,format=auto/media/achievements/backend-node-82a9a4bf-7ce4-4437-86f6-c39dcce17d15.png" target="_blank">
-    <img alt="Curso de Backend con Node.js: Base de Datos con PostgreSQL" src="https://static.platzi.com/cdn-cgi/image/width=1024,quality=50,format=auto/media/achievements/backend-node-82a9a4bf-7ce4-4437-86f6-c39dcce17d15.png" width="60" />
+  <a href="https://static.platzi.com/cdn-cgi/image/width=1024,quality=50,format=auto/media/achievements/badge-backend-nodejs-autenticacion-passportjs-jwt-3425c859-2f69-49a5-849a-792049d24.png" target="_blank">
+    <img alt="Curso de Backend con Node.js: Autenticación con Passport.js y JWT" src="https://static.platzi.com/cdn-cgi/image/width=1024,quality=50,format=auto/media/achievements/badge-backend-nodejs-autenticacion-passportjs-jwt-3425c859-2f69-49a5-849a-792049d24.png" width="60" />
   </a>
 </p>
 <h1 align="center">
-Curso de Backend con Node.js: Base de Datos con PostgreSQL
+Curso de Backend con Node.js: Autenticación con Passport.js y JWT
 </h1>
 <p align="center">
-  <a href="https://infinite-stream-05645-50dbc7bba9fc.herokuapp.com/api/v1/" target="_blank">
-    https://infinite-stream-05645-50dbc7bba9fc.herokuapp.com/api/v1/
+  <a href="https://auth-with-passportjs-and-jwt-97e5dc66b7c9.herokuapp.com/" target="_blank">
+    https://auth-with-passportjs-and-jwt-97e5dc66b7c9.herokuapp.com/
   </a>
 </p>
 
-[Curso de Backend con Node.js: Base de Datos con PostgreSQL](https://platzi.com/cursos/backend-nodejs-postgres/) hecho por [@itsluismario](https://twitter.com/itsluismario) 
+[Curso de Backend con Node.js: Autenticación con Passport.js y JWT](https://platzi.com/cursos/passport/) hecho por [@nicobytes](https://twitter.com/nicobytes) 
 
 * [Guía rápida](#-gu%C3%ADa-rápida)
 * [Logros](#-logros)
@@ -82,10 +82,14 @@ Curso de Backend con Node.js: Base de Datos con PostgreSQL
 
   ```
   "scripts": {
-      "dev": "nodemon index.js",
-      "start": "node index.js",
-      "lint": "eslint"
-    },
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint",
+    "migrations:generate": "sequelize-cli migration:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:migrate:undo",
+    "migrations:delete": "sequelize-cli db:migrate:undo:all"
+  }
   ```
 
   La -D es porque es para dependencia de desarrollo
@@ -102,7 +106,7 @@ Curso de Backend con Node.js: Base de Datos con PostgreSQL
     npm run dev
     ```
 
-    El sitio estará disponible en https://api-rest-with-express.vercel.app/api/.
+    El sitio estará disponible en https://auth-with-passportjs-and-jwt-97e5dc66b7c9.herokuapp.com/
 
   ```
   npm i express 
@@ -114,23 +118,22 @@ Curso de Backend con Node.js: Base de Datos con PostgreSQL
   "dependencies": {
       "@faker-js/faker": "^8.0.2",
       "@hapi/boom": "^10.0.1",
+      "bcrypt": "^5.1.0",
       "cors": "^2.8.5",
       "dotenv": "^16.3.1",
       "express": "^4.18.2",
       "joi": "^17.9.2",
+      "jsonwebtoken": "^9.0.1",
       "mysql2": "^3.5.1",
+      "nodemailer": "^6.9.4",
+      "passport": "^0.6.0",
+      "passport-jwt": "^4.0.1",
+      "passport-local": "^1.0.0",
       "pg": "^8.11.1",
       "pg-hstore": "^2.3.4",
       "sequelize": "^6.32.1",
       "sequelize-cli": "^6.6.1"
     },
-    "devDependencies": {
-      "eslint": "^8.43.0",
-      "eslint-config-prettier": "^8.8.0",
-      "eslint-plugin-prettier": "^4.2.1",
-      "nodemon": "^2.0.22",
-      "prettier": "^2.8.8"
-    }
   ```
 
   En index.js configura el servidor
@@ -156,12 +159,10 @@ Curso de Backend con Node.js: Base de Datos con PostgreSQL
 
 ### 🚀 Logros
 
-  1. Aprender sobre la persistencia de datos en Node.js utilizando PostgreSQL como base de datos relacional.
-  2. Conectar tu API REST con la base de datos relacional usando Sequelize, el ORM más popular en el entorno JavaScript.
-  3. Dominar el uso de Sequelize para realizar consultas, establecer relaciones entre tablas y realizar migraciones en tu aplicación.
-  4. Resolver problemas avanzados relacionados con migraciones entre Sequelize, Heroku y Node.js.
-    5. Trabajar en Postgres utilizando diversas interfaces, como interfaces gráficas, la terminal y código JavaScript.
-  6. Configurar tu entorno de desarrollo con Docker, lo que facilita la configuración y gestión del ambiente de desarrollo para tu proyecto.
+1. Envía emails con tokens para recuperar contraseñas
+2. Implementa protección de rutas y control de roles a tu API
+3. Integra Passport.js y JSON Web Tokens a Express.js
+4. Autentica y autoriza usuarios en Node.js
 
 
 ### Para probarlo
