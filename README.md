@@ -170,14 +170,14 @@ Curso de Backend con Node.js: Autenticación con Passport.js y JWT
 
   Para acceder a cada ruta es de la siguiente manera:
 
-  - Categories: https://infinite-stream-05645-50dbc7bba9fc.herokuapp.com/api/v1/categories/ 
+  - Categories: https://auth-with-passportjs-and-jwt-97e5dc66b7c9.herokuapp.com/api/v1/categories/ 
 
-  - Products: https://infinite-stream-05645-50dbc7bba9fc.herokuapp.com/api/v1/products/
+  - Products: https://auth-with-passportjs-and-jwt-97e5dc66b7c9.herokuapp.com/api/v1/products/
   
-  - Users: https://infinite-stream-05645-50dbc7bba9fc.herokuapp.com/api/v1/users/
+  - Users: https://auth-with-passportjs-and-jwt-97e5dc66b7c9.herokuapp.com/api/v1/users/
 
-  - Customers: https://infinite-stream-05645-50dbc7bba9fc.herokuapp.com/api/v1/customers/
+  - Customers: https://auth-with-passportjs-and-jwt-97e5dc66b7c9.herokuapp.com/api/v1/customers/
 
-  - Orders: https://infinite-stream-05645-50dbc7bba9fc.herokuapp.com/api/v1/orders/
+  - Orders: https://auth-with-passportjs-and-jwt-97e5dc66b7c9.herokuapp.com/api/v1/orders/
    
 Happy hacking!
